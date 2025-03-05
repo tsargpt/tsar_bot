@@ -38,3 +38,8 @@ async def handle_mosque_text(message: Message):
 @router.message(MaskedTextFilter(r"\b(ц+а+р+ь(а|ю|ём|е|ями|ях)?)\b"))
 async def handle_tsar_text(message: Message):
     await message.answer(LEXICON_RU["царь"])
+
+
+@router.message(MaskedTextFilter(r"\b(л+о+к+а+л+)\b"))
+async def handle_local_text(message: Message):
+    await message.answer(LEXICON_RU["локал"])
