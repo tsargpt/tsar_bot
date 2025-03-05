@@ -26,5 +26,5 @@ async def handle_masked_text(message: Message):
 
 
 @router.message(MaskedTextFilter(r"\b(р+е+л+и+г+и+(?:я|и|ю|е|й|ям|ями|ях)?)\b"))
-async def handle_religion_text(message: Message, word: str):
-    await message.answer(f"Вы упомянули слово: {word}")
+async def handle_religion_text(message: Message):
+    await message.answer(LEXICON_RU["религия"])
