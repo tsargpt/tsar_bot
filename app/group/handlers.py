@@ -33,3 +33,8 @@ async def handle_religion_text(message: Message):
 @router.message(lambda message: "🕌" in message.text)
 async def handle_mosque_text(message: Message):
     await message.answer(LEXICON_RU["мечеть"])
+
+
+@router.message(MaskedTextFilter(r"\b(ц+а+р+ь(а|ю|ём|е|ями|ях)?)\b"))
+async def handle_tsar_text(message: Message):
+    await message.answer(LEXICON_RU["царь"])
