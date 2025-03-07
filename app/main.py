@@ -7,15 +7,15 @@ from app.reaction.handlers import router as emoji_router
 from app.group.handlers import router as group_router
 from config import settings
 
-bot = Bot(token=settings.BOT_TOKEN)
-dp = Dispatcher()
-
-dp.include_router(commands_router)
-dp.include_router(emoji_router)
-dp.include_router(group_router)
-
 
 async def main():
+    bot = Bot(token=settings.BOT_TOKEN)
+    dp = Dispatcher()
+
+    dp.include_router(commands_router)
+    dp.include_router(emoji_router)
+    dp.include_router(group_router)
+
     await bot.delete_webhook(drop_pending_updates=True)
 
     await dp.start_polling(bot)
